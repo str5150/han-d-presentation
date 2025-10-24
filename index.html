@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>HAN.d事業部 未来価値創造プレゼンテーション</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', 'MS PMincho', 'Times New Roman', serif;
+            background: #fff;
+            color: #000;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background: #fff;
+            padding: 80px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #000;
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: -0.005em;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #000;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+
+        .content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .content ul {
+            margin: 30px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .content li {
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .content li::before {
+            content: "・";
+            color: #666;
+            position: absolute;
+            left: 0;
+        }
+
+        .case-study {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .case-title {
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: 400;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .case-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+
+        .case-section {
+            margin: 24px 0;
+        }
+
+        .case-section-title {
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .hint-box {
+            background: transparent;
+            border: 1px solid #ccc;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .hint-title {
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-btn:hover {
+            color: #000;
+            border-color: #999;
+        }
+
+        .nav-btn:disabled {
+            color: #ccc;
+            border-color: #eee;
+            cursor: not-allowed;
+        }
+
+        .slide-indicators {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #666;
+        }
+
+        .title-slide {
+            text-align: center;
+            background: #fff;
+        }
+
+        .title-slide h1 {
+            color: #000;
+            font-size: 5rem;
+            margin-bottom: 40px;
+            font-weight: 200;
+        }
+
+        .title-slide .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .context-slide {
+            background: #fff;
+        }
+
+        .summary-slide {
+            background: #fff;
+        }
+
+        .summary-points {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .summary-point {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 30px;
+        }
+
+        .summary-point h4 {
+            color: #000;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .han-d-focus {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .han-d-focus h4 {
+            color: #000;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .framework-point {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 30px;
+        }
+
+        .framework-point h4 {
+            color: #000;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                width: 95%;
+                height: 85vh;
+                padding: 40px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- スライド 1: タイトル -->
+        <div class="slide active title-slide">
+            <div class="slide-number">1/12</div>
+            <h1>HAN.d事業部<br>未来価値創造</h1>
+            <div class="subtitle">〜Sirojamから始まる、顧客価値の新たな可能性〜</div>
+        </div>
+
+        <!-- スライド 2: 現状と課題 -->
+        <div class="slide context-slide">
+            <div class="slide-number">2/12</div>
+            <h2>HAN.d事業部の現状</h2>
+            <div class="content">
+                <div class="han-d-focus">
+                    <h4>現在のポジション</h4>
+                    <ul>
+                        <li><strong>Sinai</strong>（デオドラント）から始まり、<strong>Sirojam</strong>（ハンド美容液）が主力商品</li>
+                        <li>ハンドケア市場での確固たるポジションを確立</li>
+                        <li>顧客との強い信頼関係を構築済み</li>
+                    </ul>
+                </div>
+                
+                <div class="han-d-focus">
+                    <h4>今日の目的</h4>
+                    <ul>
+                        <li>Sirojamのお客様に<strong>もっと価値を提供</strong>する方法を探る</li>
+                        <li>既存顧客基盤を活かした<strong>新しいサービス展開</strong>を検討</li>
+                        <li>顧客目線での<strong>イノベーション</strong>をブレスト</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 3: 事例1 ラッシュ -->
+        <div class="slide">
+            <div class="slide-number">3/12</div>
+            <div class="case-study">
+                <div class="case-title">LUSH（ラッシュ）</div>
+                <div class="case-subtitle">「商品」→「体験」→「コミュニティ」への価値転換</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>天然素材の石鹸・シャンプーバーを販売する化粧品ブランド</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>店舗での「手作り体験ワークショップ」を開始。顧客が自分で石鹸を作る体験を提供</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「LUSH Labs」で顧客と共に新商品を開発。コミュニティ形成とブランド愛着の向上</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>Sirojamの「使い方」を教えるだけでなく、「作る体験」や「選ぶ楽しさ」を提供できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 4: 事例2 オルビス -->
+        <div class="slide">
+            <div class="slide-number">4/12</div>
+            <div class="case-study">
+                <div class="case-title">ORBIS（オルビス）</div>
+                <div class="case-subtitle">「スキンケア」→「ライフスタイル提案」への拡張</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>無添加スキンケアブランドとして、敏感肌向け商品を販売</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「美肌診断アプリ」で個人の肌質に合わせたカスタマイズ提案を開始</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「美肌レシピ」「睡眠アドバイス」など、スキンケア以外のライフスタイル提案も展開</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>ハンドケアから「手を使う仕事」「手の健康」まで、ライフスタイル全体をサポートできないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 5: 事例3 ファンケル -->
+        <div class="slide">
+            <div class="slide-number">5/12</div>
+            <div class="case-study">
+                <div class="case-title">FANCL（ファンケル）</div>
+                <div class="case-subtitle">「商品販売」→「サブスクリプション」→「健康管理」への進化</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>無添加化粧品の通信販売で確固たる地位を確立</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「定期お届けサービス」で顧客の継続利用を促進</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「FANCL Health」で健康診断・サプリメントまで、トータルヘルスケアを提供</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>Sirojamの定期購入から「手の健康診断」「手のケアアドバイス」まで展開できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 6: 事例4 資生堂 -->
+        <div class="slide">
+            <div class="slide-number">6/12</div>
+            <div class="case-study">
+                <div class="case-title">資生堂</div>
+                <div class="case-subtitle">「化粧品」→「テクノロジー」→「パーソナライゼーション」への変革</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>伝統的な化粧品メーカーとして、高品質な商品を提供</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>AI技術を活用した「肌診断アプリ」で個人の肌質を詳細分析</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「Optune」で個人の肌状態に合わせて、その日のスキンケアを自動調整</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>手の状態（乾燥度、年齢、使用環境）に合わせて、Sirojamの使い方をパーソナライズできないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 7: 事例5 無印良品 -->
+        <div class="slide">
+            <div class="slide-number">7/12</div>
+            <div class="case-study">
+                <div class="case-title">無印良品</div>
+                <div class="case-subtitle">「商品」→「空間」→「ライフスタイル提案」への拡張</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>シンプルで高品質な日用品を販売するブランド</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「MUJI HOTEL」「MUJI CAFE」で商品を使った空間体験を提供</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「MUJI to GO」で旅行者向け、「MUJI Labo」で実験的な商品開発</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>Sirojamを使った「手のケア空間」や「ハンドケアサロン」を展開できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 8: 事例6 スターバックス -->
+        <div class="slide">
+            <div class="slide-number">8/12</div>
+            <div class="case-study">
+                <div class="case-title">スターバックス</div>
+                <div class="case-subtitle">「コーヒー」→「第三の場所」→「デジタルエクスペリエンス」への進化</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>高品質なコーヒーを提供するカフェチェーン</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「第三の場所」として、仕事や勉強ができる空間を提供</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「Starbucks Rewards」で個人の嗜好を学習し、パーソナライズされた体験を提供</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>Sirojamを使う「特別な時間」や「リラックス空間」を提案できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 9: 事例7 メルカリ -->
+        <div class="slide">
+            <div class="slide-number">9/12</div>
+            <div class="case-study">
+                <div class="case-title">メルカリ</div>
+                <div class="case-subtitle">「フリマ」→「コミュニティ」→「ライフスタイルプラットフォーム」への拡張</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>個人間でモノを売買するフリマアプリ</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「メルカリ大学」で売り方や買い方を教える教育コンテンツを提供</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「メルペイ」「メルカリ保険」で、生活に必要なサービスを横展開</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>Sirojamの「使い方教室」や「ハンドケアコミュニティ」を形成できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 10: 事例8 ワークマン -->
+        <div class="slide">
+            <div class="slide-number">10/12</div>
+            <div class="case-study">
+                <div class="case-title">ワークマン</div>
+                <div class="case-subtitle">「B2B」→「B2C」→「ライフスタイル提案」への市場拡大</div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Before（以前）</div>
+                    <div>プロ向けの作業服・安全靴を販売する専門店</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Pivot（転換）</div>
+                    <div>「#ワークマン女子」で一般消費者に高機能・低価格の価値をアピール</div>
+                </div>
+                
+                <div class="case-section">
+                    <div class="case-section-title">■ Next（次の一手）</div>
+                    <div>「ワークマンカフェ」で働く人の憩いの場を提供</div>
+                </div>
+                
+                <div class="hint-box">
+                    <div class="hint-title">HAN.dへのヒント</div>
+                    <div>ハンドケアの「プロ向け商品」から「一般向けライフスタイル提案」まで展開できないか？</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 11: ブレスト用フレームワーク -->
+        <div class="slide">
+            <div class="slide-number">11/12</div>
+            <h2>HAN.d事業部 価値創造フレームワーク</h2>
+            <div class="content">
+                <div class="summary-points">
+                    <div class="framework-point">
+                        <h4>顧客の「手」にまつわる課題を深掘り</h4>
+                        <div>手の乾燥、老化、疲労、美しさ、健康...<br>仕事、家事、趣味での手の使い方...<br>季節、環境、ライフステージでの変化...</div>
+                    </div>
+                    <div class="framework-point">
+                        <h4>Sirojamの「使い方」を拡張</h4>
+                        <div>商品の使い方 → 体験の提供<br>単品販売 → セット提案<br>個人利用 → コミュニティ形成</div>
+                    </div>
+                    <div class="framework-point">
+                        <h4>新しい価値提案の可能性</h4>
+                        <div>ハンドケアサロン、手の健康診断<br>手を使う仕事のサポート、手の美しさコンサル<br>季節限定ケア、パーソナライズ提案</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 12: まとめ -->
+        <div class="slide summary-slide">
+            <div class="slide-number">12/12</div>
+            <h2>HAN.d事業部の未来に向けて</h2>
+            <div class="summary-points">
+                <div class="summary-point">
+                    <h4>1. 顧客の「手」にまつわる課題を深く理解する</h4>
+                    <div>単なる商品販売から、顧客の生活課題解決パートナーへ</div>
+                </div>
+                <div class="summary-point">
+                    <h4>2. Sirojamの価値を「体験」と「コミュニティ」で拡張</h4>
+                    <div>商品を使う時間を特別な体験に変え、顧客同士のつながりを創出</div>
+                </div>
+                <div class="summary-point">
+                    <h4>3. 既存顧客基盤を活かした新しいサービス展開</h4>
+                    <div>信頼関係を築いた顧客に、より深い価値を提供する仕組みを構築</div>
+                </div>
+                <div class="summary-point">
+                    <h4>4. テクノロジーとパーソナライゼーションの活用</h4>
+                    <div>個人の手の状態やライフスタイルに合わせた、カスタマイズされた提案</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ナビゲーション -->
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← 前へ</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">次へ →</button>
+    </div>
+
+    <!-- スライドインジケーター -->
+    <div class="slide-indicators" id="indicators"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // インジケーターを作成
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                if (i === 0) indicator.classList.add('active');
+                indicator.onclick = () => goToSlide(i);
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        // スライドを表示
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            // インジケーターを更新
+            document.querySelectorAll('.indicator').forEach((ind, index) => {
+                ind.classList.toggle('active', index === currentSlide);
+            });
+            
+            // ナビゲーションボタンの状態を更新
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        // スライドを変更
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        // 特定のスライドに移動
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // キーボードナビゲーション
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // 初期化
+        createIndicators();
+        showSlide(0);
+    </script>
+</body>
+</html>
