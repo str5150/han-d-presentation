@@ -212,6 +212,40 @@
             border-radius: 8px;
         }
 
+        .journey-arrow {
+            font-size: 2rem;
+            color: #566270;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .journey-insights {
+            margin-top: 30px;
+        }
+
+        .insight-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #566270;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .insight-item {
+            padding: 15px;
+            background: #faf4ed;
+            border-radius: 8px;
+            border-left: 4px solid #d4a574;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         .journey-step {
             flex: 1;
             text-align: center;
@@ -495,15 +529,15 @@
     <div class="presentation-container">
         <!-- スライド 1: タイトル -->
         <div class="slide active title-slide">
-            <div class="slide-number">1/15</div>
-            <img src="logo.svg" alt="HAN.d" class="logo">
+            <div class="slide-number">1/16</div>
+            <img src="obsidian/仕事/krokos/HAN.d/251029/logo.svg" alt="HAN.d" class="logo">
             <h1>HAN.dのお客様ワーク</h1>
             <div class="subtitle">Have a nice day! 手と手を取り合って今日よりもいい明日へ</div>
         </div>
 
         <!-- スライド 2: ワークの目的 -->
         <div class="slide">
-            <div class="slide-number">2/15</div>
+            <div class="slide-number">2/16</div>
             <h2>今日のワークの目的</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -537,7 +571,7 @@
 
         <!-- スライド 3: RIZAP事例 -->
         <div class="slide">
-            <div class="slide-number">3/15</div>
+            <div class="slide-number">3/16</div>
             <h2>事例1: RIZAPグループ</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -565,7 +599,7 @@
 
         <!-- スライド 4: 任天堂事例 -->
         <div class="slide">
-            <div class="slide-number">4/15</div>
+            <div class="slide-number">4/16</div>
             <h2>事例2: 任天堂</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -593,7 +627,7 @@
 
         <!-- スライド 5: ワークマン事例 -->
         <div class="slide">
-            <div class="slide-number">5/15</div>
+            <div class="slide-number">5/16</div>
             <h2>事例3: ワークマン</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -617,7 +651,7 @@
 
         <!-- スライド 6: ロイヤルカスタマー例 -->
         <div class="slide">
-            <div class="slide-number">6/15</div>
+            <div class="slide-number">6/16</div>
             <h2>ロイヤルカスタマー：佐々木美智子さん</h2>
             <div class="persona-box">
                 <div class="persona-title">基本情報</div>
@@ -637,9 +671,69 @@
             </div>
         </div>
 
-        <!-- スライド 4: 佐々木さんの現在と次のニーズ -->
+        <!-- スライド 7: カスタマージャーニーマップ可視化 -->
         <div class="slide">
-            <div class="slide-number">7/15</div>
+            <div class="slide-number">7/16</div>
+            <h2>佐々木さんのカスタマージャーニーマップ</h2>
+            <div class="content">
+                <div class="journey-visual">
+                    <div class="journey-step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">満足</div>
+                        <div class="step-desc">Sirojamの効果を実感<br>継続購入中</div>
+                    </div>
+                    <div class="journey-arrow">→</div>
+                    <div class="journey-step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">拡張</div>
+                        <div class="step-desc">手以外の部位<br>（顔・首・デコルテ）<br>への関心</div>
+                    </div>
+                    <div class="journey-arrow">→</div>
+                    <div class="journey-step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">参加</div>
+                        <div class="step-desc">同世代コミュニティ<br>美容・健康イベント<br>への参加希望</div>
+                    </div>
+                    <div class="journey-arrow">→</div>
+                    <div class="journey-step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">推奨</div>
+                        <div class="step-desc">友人への推奨<br>アンバサダー活動<br>への意欲</div>
+                    </div>
+                    <div class="journey-arrow">→</div>
+                    <div class="journey-step">
+                        <div class="step-number">5</div>
+                        <div class="step-title">専門化</div>
+                        <div class="step-desc">ワークショップ主催<br>美容アドバイザー<br>としての成長</div>
+                    </div>
+                </div>
+                
+                <div class="journey-insights">
+                    <div class="insight-title">各段階での感情・行動・次のニーズ</div>
+                    <div class="insight-grid">
+                        <div class="insight-item">
+                            <strong>満足段階：</strong>「効果を実感できて嬉しい」→「他の部位もケアしたい」
+                        </div>
+                        <div class="insight-item">
+                            <strong>拡張段階：</strong>「もっと美しくなりたい」→「同じ悩みを持つ仲間と交流したい」
+                        </div>
+                        <div class="insight-item">
+                            <strong>参加段階：</strong>「知識を共有したい」→「人に教える立場になりたい」
+                        </div>
+                        <div class="insight-item">
+                            <strong>推奨段階：</strong>「良いものを広めたい」→「専門性を高めたい」
+                        </div>
+                        <div class="insight-item">
+                            <strong>専門化段階：</strong>「指導者として認められたい」→「新しい挑戦をしたい」
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 8: 佐々木さんの現在と次のニーズ -->
+        <div class="slide">
+            <div class="slide-number">8/16</div>
             <h2>佐々木さんの現在と次のニーズ</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -668,7 +762,7 @@
 
         <!-- スライド 5: 事例1 LUSH -->
         <div class="slide">
-            <div class="slide-number">8/15</div>
+            <div class="slide-number">8/16</div>
             <div class="case-study">
                 <div class="case-title">LUSH（ラッシュ）</div>
                 <div class="case-subtitle">「商品」→「体験」→「コミュニティ」への価値転換</div>
@@ -697,7 +791,7 @@
 
         <!-- スライド 6: 事例2 オルビス -->
         <div class="slide">
-            <div class="slide-number">9/15</div>
+            <div class="slide-number">9/16</div>
             <div class="case-study">
                 <div class="case-title">ORBIS（オルビス）</div>
                 <div class="case-subtitle">「スキンケア」→「ライフスタイル提案」への拡張</div>
@@ -726,7 +820,7 @@
 
         <!-- スライド 7: 事例3 ファンケル -->
         <div class="slide">
-            <div class="slide-number">10/15</div>
+            <div class="slide-number">10/16</div>
             <div class="case-study">
                 <div class="case-title">FANCL（ファンケル）</div>
                 <div class="case-subtitle">「商品販売」→「サブスクリプション」→「健康管理」への進化</div>
@@ -755,7 +849,7 @@
 
         <!-- スライド 8: 事例4 資生堂 -->
         <div class="slide">
-            <div class="slide-number">11/15</div>
+            <div class="slide-number">11/16</div>
             <div class="case-study">
                 <div class="case-title">資生堂</div>
                 <div class="case-subtitle">「化粧品」→「テクノロジー」→「パーソナライゼーション」への変革</div>
@@ -784,7 +878,7 @@
 
         <!-- スライド 9: 事例5 無印良品 -->
         <div class="slide">
-            <div class="slide-number">12/15</div>
+            <div class="slide-number">12/16</div>
             <div class="case-study">
                 <div class="case-title">無印良品</div>
                 <div class="case-subtitle">「商品」→「空間」→「ライフスタイル提案」への拡張</div>
@@ -813,7 +907,7 @@
 
         <!-- スライド 10: ファン化拡大のためのアイディア発想 -->
         <div class="slide">
-            <div class="slide-number">13/15</div>
+            <div class="slide-number">13/16</div>
             <h2>ファン化拡大のためのアイディア発想</h2>
             <div class="tips-grid">
                 <div class="tip-box">
@@ -860,7 +954,7 @@
 
         <!-- スライド 11: アイディア発想のための質問集 -->
         <div class="slide">
-            <div class="slide-number">14/15</div>
+            <div class="slide-number">14/16</div>
             <h2>アイディア発想のための質問集</h2>
             <div class="questions-grid">
                 <div class="question-box">
@@ -911,7 +1005,7 @@
 
         <!-- スライド 12: ワークショップ進行案 -->
         <div class="slide">
-            <div class="slide-number">15/15</div>
+            <div class="slide-number">15/16</div>
             <h2>ワークショップ進行案</h2>
             <div class="content">
                 <div class="journey-stage">
