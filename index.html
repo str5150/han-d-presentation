@@ -246,6 +246,84 @@
             line-height: 1.5;
         }
 
+        .model-explanation {
+            text-align: center;
+        }
+
+        .model-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #566270;
+            margin-bottom: 10px;
+        }
+
+        .model-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .aisas-visual, .ulssas-visual {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            flex-wrap: wrap;
+        }
+
+        .aisas-step, .ulssas-step {
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 5px;
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .step-label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #566270;
+            margin-bottom: 5px;
+        }
+
+        .step-desc {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .aisas-arrow, .ulssas-arrow {
+            font-size: 1.5rem;
+            color: #566270;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .model-details {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .detail-item {
+            padding: 12px;
+            background: #faf4ed;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #d4a574;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
         .journey-step {
             flex: 1;
             text-align: center;
@@ -529,7 +607,7 @@
     <div class="presentation-container">
         <!-- スライド 1: タイトル -->
         <div class="slide active title-slide">
-            <div class="slide-number">1/16</div>
+            <div class="slide-number">1/18</div>
             <img src="obsidian/仕事/krokos/HAN.d/251029/logo.svg" alt="HAN.d" class="logo">
             <h1>HAN.dのお客様ワーク</h1>
             <div class="subtitle">Have a nice day! 手と手を取り合って今日よりもいい明日へ</div>
@@ -537,7 +615,7 @@
 
         <!-- スライド 2: ワークの目的 -->
         <div class="slide">
-            <div class="slide-number">2/16</div>
+            <div class="slide-number">2/18</div>
             <h2>今日のワークの目的</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -571,7 +649,7 @@
 
         <!-- スライド 3: RIZAP事例 -->
         <div class="slide">
-            <div class="slide-number">3/16</div>
+            <div class="slide-number">3/18</div>
             <h2>事例1: RIZAPグループ</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -599,7 +677,7 @@
 
         <!-- スライド 4: 任天堂事例 -->
         <div class="slide">
-            <div class="slide-number">4/16</div>
+            <div class="slide-number">4/18</div>
             <h2>事例2: 任天堂</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -627,7 +705,7 @@
 
         <!-- スライド 5: ワークマン事例 -->
         <div class="slide">
-            <div class="slide-number">5/16</div>
+            <div class="slide-number">5/18</div>
             <h2>事例3: ワークマン</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -651,7 +729,7 @@
 
         <!-- スライド 6: ロイヤルカスタマー例 -->
         <div class="slide">
-            <div class="slide-number">6/16</div>
+            <div class="slide-number">6/18</div>
             <h2>ロイヤルカスタマー：佐々木美智子さん</h2>
             <div class="persona-box">
                 <div class="persona-title">基本情報</div>
@@ -671,9 +749,131 @@
             </div>
         </div>
 
-        <!-- スライド 7: カスタマージャーニーマップ可視化 -->
+        <!-- スライド 7: AISASモデル説明 -->
         <div class="slide">
-            <div class="slide-number">7/16</div>
+            <div class="slide-number">7/18</div>
+            <h2>AISASモデルとは？</h2>
+            <div class="content">
+                <div class="model-explanation">
+                    <div class="model-title">従来のマーケティングモデル</div>
+                    <div class="model-subtitle">消費者行動の5段階を表すフレームワーク</div>
+                    
+                    <div class="aisas-visual">
+                        <div class="aisas-step">
+                            <div class="step-icon">👁️</div>
+                            <div class="step-label">Attention<br><span class="step-desc">注意</span></div>
+                        </div>
+                        <div class="aisas-arrow">→</div>
+                        <div class="aisas-step">
+                            <div class="step-icon">💡</div>
+                            <div class="step-label">Interest<br><span class="step-desc">興味</span></div>
+                        </div>
+                        <div class="aisas-arrow">→</div>
+                        <div class="aisas-step">
+                            <div class="step-icon">🔍</div>
+                            <div class="step-label">Search<br><span class="step-desc">検索</span></div>
+                        </div>
+                        <div class="aisas-arrow">→</div>
+                        <div class="aisas-step">
+                            <div class="step-icon">🛒</div>
+                            <div class="step-label">Action<br><span class="step-desc">行動</span></div>
+                        </div>
+                        <div class="aisas-arrow">→</div>
+                        <div class="aisas-step">
+                            <div class="step-icon">📢</div>
+                            <div class="step-label">Share<br><span class="step-desc">共有</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="model-details">
+                        <div class="detail-item">
+                            <strong>Attention（注意）:</strong> 商品・サービスに気づく
+                        </div>
+                        <div class="detail-item">
+                            <strong>Interest（興味）:</strong> 関心を持ち、詳しく知りたくなる
+                        </div>
+                        <div class="detail-item">
+                            <strong>Search（検索）:</strong> 情報を調べ、比較検討する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Action（行動）:</strong> 購入・利用する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Share（共有）:</strong> 体験を他者と共有する
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 8: ULSSASモデル説明 -->
+        <div class="slide">
+            <div class="slide-number">8/18</div>
+            <h2>ULSSASモデルとは？</h2>
+            <div class="content">
+                <div class="model-explanation">
+                    <div class="model-title">HAN.dが考える新しいモデル</div>
+                    <div class="model-subtitle">ロイヤルカスタマー化のための6段階フレームワーク</div>
+                    
+                    <div class="ulssas-visual">
+                        <div class="ulssas-step">
+                            <div class="step-icon">😊</div>
+                            <div class="step-label">Understand<br><span class="step-desc">理解</span></div>
+                        </div>
+                        <div class="ulssas-arrow">→</div>
+                        <div class="ulssas-step">
+                            <div class="step-icon">❤️</div>
+                            <div class="step-label">Love<br><span class="step-desc">愛用</span></div>
+                        </div>
+                        <div class="ulssas-arrow">→</div>
+                        <div class="ulssas-step">
+                            <div class="step-icon">🔄</div>
+                            <div class="step-label">Support<br><span class="step-desc">支援</span></div>
+                        </div>
+                        <div class="ulssas-arrow">→</div>
+                        <div class="ulssas-step">
+                            <div class="step-icon">📢</div>
+                            <div class="step-label">Share<br><span class="step-desc">共有</span></div>
+                        </div>
+                        <div class="ulssas-arrow">→</div>
+                        <div class="ulssas-step">
+                            <div class="step-icon">👑</div>
+                            <div class="step-label">Advocate<br><span class="step-desc">推奨</span></div>
+                        </div>
+                        <div class="ulssas-arrow">→</div>
+                        <div class="ulssas-step">
+                            <div class="step-icon">🌟</div>
+                            <div class="step-label">Specialist<br><span class="step-desc">専門化</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="model-details">
+                        <div class="detail-item">
+                            <strong>Understand（理解）:</strong> 商品の価値を深く理解する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Love（愛用）:</strong> 継続的に愛用し、習慣化する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Support（支援）:</strong> ブランドを支援したい気持ちが生まれる
+                        </div>
+                        <div class="detail-item">
+                            <strong>Share（共有）:</strong> 体験や知識を他者と共有する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Advocate（推奨）:</strong> 積極的に推奨・紹介する
+                        </div>
+                        <div class="detail-item">
+                            <strong>Specialist（専門化）:</strong> その分野の専門家・指導者になる
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド 9: カスタマージャーニーマップ可視化 -->
+        <div class="slide">
+            <div class="slide-number">9/18</div>
             <h2>佐々木さんのカスタマージャーニーマップ</h2>
             <div class="content">
                 <div class="journey-visual">
@@ -733,7 +933,7 @@
 
         <!-- スライド 8: 佐々木さんの現在と次のニーズ -->
         <div class="slide">
-            <div class="slide-number">8/16</div>
+            <div class="slide-number">8/18</div>
             <h2>佐々木さんの現在と次のニーズ</h2>
             <div class="content">
                 <div class="journey-stage">
@@ -762,7 +962,7 @@
 
         <!-- スライド 5: 事例1 LUSH -->
         <div class="slide">
-            <div class="slide-number">8/16</div>
+            <div class="slide-number">8/18</div>
             <div class="case-study">
                 <div class="case-title">LUSH（ラッシュ）</div>
                 <div class="case-subtitle">「商品」→「体験」→「コミュニティ」への価値転換</div>
@@ -791,7 +991,7 @@
 
         <!-- スライド 6: 事例2 オルビス -->
         <div class="slide">
-            <div class="slide-number">9/16</div>
+            <div class="slide-number">9/18</div>
             <div class="case-study">
                 <div class="case-title">ORBIS（オルビス）</div>
                 <div class="case-subtitle">「スキンケア」→「ライフスタイル提案」への拡張</div>
@@ -820,7 +1020,7 @@
 
         <!-- スライド 7: 事例3 ファンケル -->
         <div class="slide">
-            <div class="slide-number">10/16</div>
+            <div class="slide-number">10/18</div>
             <div class="case-study">
                 <div class="case-title">FANCL（ファンケル）</div>
                 <div class="case-subtitle">「商品販売」→「サブスクリプション」→「健康管理」への進化</div>
@@ -849,7 +1049,7 @@
 
         <!-- スライド 8: 事例4 資生堂 -->
         <div class="slide">
-            <div class="slide-number">11/16</div>
+            <div class="slide-number">11/18</div>
             <div class="case-study">
                 <div class="case-title">資生堂</div>
                 <div class="case-subtitle">「化粧品」→「テクノロジー」→「パーソナライゼーション」への変革</div>
@@ -878,7 +1078,7 @@
 
         <!-- スライド 9: 事例5 無印良品 -->
         <div class="slide">
-            <div class="slide-number">12/16</div>
+            <div class="slide-number">12/18</div>
             <div class="case-study">
                 <div class="case-title">無印良品</div>
                 <div class="case-subtitle">「商品」→「空間」→「ライフスタイル提案」への拡張</div>
@@ -907,7 +1107,7 @@
 
         <!-- スライド 10: ファン化拡大のためのアイディア発想 -->
         <div class="slide">
-            <div class="slide-number">13/16</div>
+            <div class="slide-number">13/18</div>
             <h2>ファン化拡大のためのアイディア発想</h2>
             <div class="tips-grid">
                 <div class="tip-box">
@@ -954,7 +1154,7 @@
 
         <!-- スライド 11: アイディア発想のための質問集 -->
         <div class="slide">
-            <div class="slide-number">14/16</div>
+            <div class="slide-number">14/18</div>
             <h2>アイディア発想のための質問集</h2>
             <div class="questions-grid">
                 <div class="question-box">
@@ -1005,7 +1205,7 @@
 
         <!-- スライド 12: ワークショップ進行案 -->
         <div class="slide">
-            <div class="slide-number">15/16</div>
+            <div class="slide-number">15/18</div>
             <h2>ワークショップ進行案</h2>
             <div class="content">
                 <div class="journey-stage">
